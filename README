@@ -43,7 +43,7 @@ HOW TO INSTALL :
 
     - Open Makefile.target under the Qemu main folder and add this line
 
-      obj-y += rabbits
+      obj-y += rabbits/
 
     this line should not be added at the end but where "obj-y" is filled
     starting at line 90 approx

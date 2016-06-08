@@ -1057,7 +1057,7 @@ static void load_access(TCGv addr, int size)
     TCGLabel *io_load_access = gen_new_label();
 
     tcg_gen_mov_tl(addr_value,addr); //we use a local register to keep adr value over Jump
-    gen_helper_print_r(addr);
+//    gen_helper_print_r(addr);
 
     //Calculate the index from the Virtual Address
     tcg_gen_shri_tl(tmp,addr,TARGET_PAGE_BITS);
@@ -1186,7 +1186,7 @@ static void load_access_m(TCGv addr, int n)
     tcg_gen_brcondi_tl(TCG_COND_NE,tmp,0,io_load_access);
     //We have a mem access here
     for(i=0;i<n;i++) {
-        gen_helper_print_r(addr_value);
+//        gen_helper_print_r(addr_value);
         rabbits_dcache_load(addr_value,4);
         tcg_gen_addi_tl(addr_value,addr_value,4);
     }
