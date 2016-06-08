@@ -67,7 +67,7 @@ B_F=".rabbits_annotation"
 
     NUM_LINE_B=`expr "${NUM_LINE}" - 0` # Where to insert "before" call
     sed -i$B_F "${NUM_LINE_B}i\    ${L_S}\n\
-    rabbits_arm_call_before(insn,cpu_R[(insn >> 16) & 0xf],cpu_R[insn & 0xf]);\n\
+    rabbits_arm_call_before(dc->pc,cpu_R[(insn >> 16) & 0xf],cpu_R[insn & 0xf]);\n\
     ${L_E}" $FILE_NAME
 
     NUM_LINE_A=`expr "${NUM_LINE}" + 4` # Where to insert "after" call
