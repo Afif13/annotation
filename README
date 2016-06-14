@@ -2,50 +2,17 @@ This is a small a project that allow to annotate qemu with a non intrusive way :
  - Cycle calculation
  - Abstract Cache simulation
 
-This works with "arm-softmmu" target and with Qemu version 2.5
+This works with "arm-softmmu" and "mips-softmmu" target and with Qemu version 2.5
 
 
 HOW TO INSTALL :
 
 1) Download the last version of Qemu from the main repo
 
-2) Copy the whole folder "rabbits" in the qemu main folder
-   (the folder that contains VERSION)
+2) run install.sh (you have to edit this file in order to specify the Qemu Dir)
 
-3) Open "annotate-qemu" file and fill the var QEMU_SRC_DIR
-   with the path of qemu folder. The run it !
-
-   The script will do instersion in some Qemu files
-   Files concerned are :
-    cpus.c
-    vl.c
-    target-arm/translate.c
+6) Run Make of Qemu !
 
 
-   If any error occurred during this steps :
-   - Verify that the path specified is correct
-   - Verify the Qemu version
-   - Do a git checkout on the 3 concerned files and try again
 
 
-4) Configure Qemu like this :
-   ./configure --target-list=arm-softmmu --disable-werror
-
-   You can add other options but "disable-werror" is mandatory !
-   The compilation will output errors if we specify other target
-   so let's keep only one
-
-5) Before doing make we need to update some Makefiles in order to consider our files.
-    - Open Makefile.objs under the Qemu main folder and add these two lines :
-
-      common-obj-y += rabbits/
-      obj-y += rabbits/
-
-    - Open Makefile.target under the Qemu main folder and add this line
-
-      obj-y += rabbits/
-
-    this line should not be added at the end but where "obj-y" is filled
-    starting at line 90 approx
-
-6) Run Make !

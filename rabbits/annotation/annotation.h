@@ -6,7 +6,7 @@
 #include "tcg-op.h"
 
 
-#define DEBUG_ANNOTATION
+//#define DEBUG_ANNOTATION
 
 #ifdef DEBUG_ANNOTATION
 # define DPRINTF(fmt, ...) fprintf(stderr, fmt, ##__VA_ARGS__)
@@ -14,13 +14,6 @@
 # define DPRINTF(fmt, ...) do {} while(0)
 #endif
 
-
-
-/***Arm Specific Annotation***/
-
-void rabbits_arm_call(uint32_t pc, uint32_t insn, int idx);
-
-/***End Arm Specific Annotation***/
 
 
 /***Generic Annotion (architecture independant)***/

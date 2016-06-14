@@ -20,21 +20,24 @@ void rabbits_dcache_store(TCGv addr, uint8_t size)
 {
     rabbits_log_access(addr,size,STORE);
 }
-
+//Log an invalidate into the table
 void rabbits_dcache_invalidate_line(TCGv addr)
 {
     rabbits_log_access(addr,0,INVALIDATE_LINE);
 }
+//Log an invalidate all into the table
 void rabbits_dcache_invalidate_all(void)
 {
     TCGv tmp = tcg_temp_new();
     rabbits_log_access(tmp,0,INVALIDATE_ALL);
     tcg_temp_free(tmp);
 }
+//Log a flush into the table
 void rabbits_dcache_flush_line(TCGv addr)
 {
     rabbits_log_access(addr,0,FLUSH_LINE);
 }
+//Log a flush all into the table
 void rabbits_dcache_flush_all(void)
 {
     TCGv tmp = tcg_temp_new();

@@ -2,8 +2,8 @@ obj-y += annotation/cpu_annotation.o
 obj-y += annotation/icache_annotation.o 
 obj-y += annotation/dcache_annotation.o 
 
-obj-y += annotation/arm/annotation.o 
-obj-y += annotation/arm/decoder.o
+obj-y += annotation/$(TARGET_NAME)/annotation.o
+obj-y += annotation/$(TARGET_NAME)/decoder.o
 
 obj-y += cache/icache.o 
 obj-y += cache/dcache.o 
